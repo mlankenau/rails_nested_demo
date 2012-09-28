@@ -46,12 +46,12 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    y params[:user]
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
       redirect_to @user, :notice => 'User was successfully updated.'
     else
+      puts "some errors"
       render :edit
     end
   end
